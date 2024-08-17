@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "478701140806",
+    "project_id": "albumsrock-ba5f5",
+    "storage_bucket": "albumsrock-ba5f5.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:478701140806:android:2f2c94394c4ca22b5ec347",
+        "android_client_info": {
+          "package_name": "com.hn.unah.reposicion"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDLsxfeSkH5eY3jHzfngS1QBeTOh8N5ltY"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
