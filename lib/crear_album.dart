@@ -2,6 +2,8 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 
 class CrearAlbum extends StatefulWidget {
+  const CrearAlbum({super.key});
+
   @override
   _CrearAlbumState createState() => _CrearAlbumState();
 }
@@ -27,16 +29,16 @@ class _CrearAlbumState extends State<CrearAlbum> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(title: Text('Crear Album')),
+      appBar: AppBar(title: const Text('Crear Album')),
       body: Padding(
-        padding: EdgeInsets.all(16.0),
+        padding: const EdgeInsets.all(16.0),
         child: Form(
           key: _formKey,
           child: Column(
             children: <Widget>[
               TextFormField(
                 controller: _nameController,
-                decoration: InputDecoration(labelText: 'Album Name'),
+                decoration:const InputDecoration(labelText: 'Album Name'),
                 validator: (value) {
                   if (value == null || value.isEmpty) {
                     return 'Nombre de Album';
@@ -46,7 +48,7 @@ class _CrearAlbumState extends State<CrearAlbum> {
               ),
               TextFormField(
                 controller: _bandController,
-                decoration: InputDecoration(labelText: 'Nombre de banda'),
+                decoration:const InputDecoration(labelText: 'Nombre de banda'),
                 validator: (value) {
                   if (value == null || value.isEmpty) {
                     return 'ingrese un nombre';
@@ -56,7 +58,7 @@ class _CrearAlbumState extends State<CrearAlbum> {
               ),
               TextFormField(
                 controller: _yearController,
-                decoration: InputDecoration(labelText: 'Año de lanzamiento'),
+                decoration: const InputDecoration(labelText: 'Año de lanzamiento'),
                 keyboardType: TextInputType.number,
                 validator: (value) {
                   if (value == null || value.isEmpty) {
@@ -65,10 +67,10 @@ class _CrearAlbumState extends State<CrearAlbum> {
                   return null;
                 },
               ),
-              SizedBox(height: 20),
+             const SizedBox(height: 20),
               ElevatedButton(
                 onPressed: _addAlbum,
-                child: Text('Agregar album'),
+                child: const Text('Agregar album'),
               ),
             ],
           ),

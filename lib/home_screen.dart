@@ -3,18 +3,20 @@ import 'package:flutter/material.dart';
 import 'crear_album.dart';
 
 class HomeScreen extends StatelessWidget {
+  const HomeScreen({super.key});
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title:  Text('Bandas de Rock'),
+        title: const Text('Bandas de Rock'),
         actions: [
           IconButton(
-            icon: Icon(Icons.add),
+            icon: const Icon(Icons.add),
             onPressed: () {
               Navigator.of(context).push(
                 MaterialPageRoute(
-                  builder: (context) => CrearAlbum(),
+                  builder: (context) => const CrearAlbum(),
                 ),
               );
             },
@@ -25,11 +27,11 @@ class HomeScreen extends StatelessWidget {
         stream: FirebaseFirestore.instance.collection('albums').snapshots(),
         builder: (context, snapshot) {
           if (snapshot.connectionState == ConnectionState.waiting) {
-            return Center(child: CircularProgressIndicator());
+            return const Center(child: CircularProgressIndicator());
           }
 
           if (!snapshot.hasData || snapshot.data!.docs.isEmpty ?? true) {
-            return Center(child: Text('No albums found'));
+            return const Center(child: Text('No albums found'));
           }
 
           final albums = snapshot.data!.docs;
