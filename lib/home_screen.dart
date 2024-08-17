@@ -30,10 +30,6 @@ class HomeScreen extends StatelessWidget {
             return const Center(child: CircularProgressIndicator());
           }
 
-          if (!snapshot.hasData || snapshot.data!.docs.isEmpty ?? true) {
-            return const Center(child: Text('No albums found'));
-          }
-
           final albums = snapshot.data!.docs;
 
           return ListView.builder(
@@ -41,20 +37,20 @@ class HomeScreen extends StatelessWidget {
             itemBuilder: (context, index) {
               final album = albums[index];
               final data = album.data() as Map<String, dynamic>;
-              final votes = data['votes'] as int;
+              final votes = data['votos'] as int;
 
               return ListTile(
-                title: Text(data['name_album']),
-                subtitle: Text('Band: ${data['name_band']}\nYear: ${data['year']}'),
+                title: Text(data['nombre_album']),
+                subtitle: Text('Banda: ${data['nombre_banda']}\nAnio: ${data['anio']}'),
                 trailing: Row(
                   mainAxisSize: MainAxisSize.min,
                   children: [
                     Text('$votes'),
                     IconButton(
-                      icon: Icon(Icons.thumb_up),
+                      icon: const Icon(Icons.thumb_up),
                       onPressed: () async {
                         await FirebaseFirestore.instance.collection('albums').doc(album.id).update({
-                          'votes': votes + 1,
+                          'votos': votes + 1,
                         });
                       },
                     ),
