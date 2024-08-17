@@ -24,7 +24,7 @@ class _CrearAlbumState extends State<CrearAlbum> {
         'anio_lanzamiento': int.parse(_anioController.text),
         'votos': 0,
       });
-      Navigator.of(context).pop();
+    //  Navigator.of(context).pop();
     }
   }
 
